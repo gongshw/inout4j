@@ -2,3 +2,6 @@
 .idea/
 build/
 classes/
+gradle-app.setting
+.gradletasknamecache
+
