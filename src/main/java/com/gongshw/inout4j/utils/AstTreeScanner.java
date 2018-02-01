@@ -10,11 +10,12 @@ import com.sun.source.util.TreePathScanner;
 /**
  * @author gongshiwei
  */
-public abstract class AstTreeScanner extends TreePathScanner<Void,Void> {
-    public void scan(TreePath treePath){
-        super.scan(treePath,null);
+public abstract class AstTreeScanner extends TreePathScanner<Void, Void> {
+    public void scan(TreePath treePath) {
+        super.scan(treePath, null);
     }
-    public void scan(Tree tree){
-        super.scan(tree,null);
+
+    public void scan(Tree tree) {
+        super.scan(tree, null);
     }
 }

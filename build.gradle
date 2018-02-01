@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: "jacoco"
 
 repositories {
     jcenter()
@@ -6,8 +7,11 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc2'
     compile files("${System.properties['java.home']}/../lib/tools.jar")
+
     testCompile 'junit:junit:4.12'
-    testCompile 'com.github.google:compile-testing:master-SNAPSHOT'
+    testCompile 'com.google.testing.compile:compile-testing:0.15'
 }
+
+defaultTasks 'clean', 'test', 'jacocoTestReport', 'jar'

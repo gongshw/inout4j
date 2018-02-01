@@ -3,18 +3,31 @@
  */
 package com.gongshw.inout4j.test;
 
-import com.gongshw.inout4j.annotation.Const;
 import com.gongshw.inout4j.annotation.In;
-import com.gongshw.inout4j.annotation.NonConst;
 import com.gongshw.inout4j.annotation.Out;
+import com.gongshw.inout4j.annotation.ReadOnly;
+import com.gongshw.inout4j.annotation.Writable;
 
 class ConflictAnnotation {
-    @NonConst
-    @Const // error
-    private void confilict(){
+    @ReadOnly
+    @Writable // error
+    private void confilict() {
     }
 
-    @Const
-    private void confilict(@In @Out Object param){ // error
+    @ReadOnly
+    private void readOnly() {
+    }
+
+    @Writable // error
+    private void writable() {
+    }
+
+    private void confilict(@In @Out Object param) { // error
+    }
+
+    private void in(@In Object param) { // error
+    }
+
+    private void out(@In Object param) { // error
     }
 }

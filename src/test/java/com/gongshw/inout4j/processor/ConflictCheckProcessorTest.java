@@ -19,6 +19,7 @@ public class ConflictCheckProcessorTest {
     public void process() throws Exception {
         Compilation compilation = Compiler.javac().withProcessors(new ConflictCheckProcessor())
                 .compile(JavaFileObjects.forResource("com/gongshw/inout4j/test/ConflictAnnotation.java"));
+        compilation.errors().forEach(System.err::println);
         assertThat(compilation).hadErrorCount(2);
     }
 }

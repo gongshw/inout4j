@@ -17,8 +17,9 @@ import com.google.testing.compile.JavaFileObjects;
 public class ConstMethodCheckTest {
     @Test
     public void process() throws Exception {
-        Compilation compilation = Compiler.javac().withProcessors(new ConstMethodCheckProcessor())
+        Compilation compilation = Compiler.javac().withProcessors(new ReadOnlyMethodCheckProcessor())
                 .compile(JavaFileObjects.forResource("com/gongshw/inout4j/test/ConstChangeField.java"));
-        assertThat(compilation).hadErrorCount(2);
+        compilation.errors().forEach(System.err::println);
+        assertThat(compilation).hadErrorCount(4);
     }
 }

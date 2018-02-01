@@ -12,9 +12,9 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
-import com.gongshw.inout4j.annotation.Const;
+import com.gongshw.inout4j.annotation.ReadOnly;
 import com.gongshw.inout4j.annotation.In;
-import com.gongshw.inout4j.annotation.NonConst;
+import com.gongshw.inout4j.annotation.Writable;
 import com.gongshw.inout4j.annotation.Out;
 import com.google.auto.service.AutoService;
 
@@ -26,7 +26,7 @@ public class ConflictCheckProcessor extends BaseInout4jProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
-        checkConflict(env, ElementKind.METHOD, Const.class, NonConst.class);
+        checkConflict(env, ElementKind.METHOD, ReadOnly.class, Writable.class);
         checkConflict(env, ElementKind.PARAMETER, In.class, Out.class);
         return false;
     }

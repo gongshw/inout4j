@@ -3,12 +3,13 @@
  */
 package com.gongshw.inout4j.test;
 
-import com.gongshw.inout4j.annotation.Const;
+import com.gongshw.inout4j.annotation.ReadOnly;
+import com.gongshw.inout4j.annotation.Writable;
 
 class ConstChangeField {
     private Object field = null;
 
-    @Const
+    @ReadOnly
     private void update() {
         new Runnable() {
             @Override
@@ -18,9 +19,25 @@ class ConstChangeField {
         };
     }
 
-    @Const
+    @Writable
+    private void update(int param) {
+    }
+
+    @ReadOnly
     private Object get() {
-        this.update(); // error
+        System.out.print("get something");
+        this.update(0); // error
+        update(0); // error
         return this.field;
+    }
+
+    @Writable
+    public void set() {
+
+    }
+
+    @ReadOnly
+    private void getInvokeSet() {
+        this.set(0); // error
     }
 }

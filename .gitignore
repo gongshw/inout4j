@@ -5,3 +5,8 @@ classes/
 gradle-app.setting
 .gradletasknamecache
 
+
+output/
+*.class
+*.iml
+out/
