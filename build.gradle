@@ -1,10 +1,19 @@
-apply plugin: 'java'
-apply plugin: "jacoco"
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.8.2'
+}
 
 repositories {
     jcenter()
     maven { url "https://jitpack.io" }
 }
+
+group 'com.gongshw.inout4j'
+version '0.0.1-snapshot' // Plugin version
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
     compileOnly 'com.google.auto.service:auto-service:1.0-rc2'
