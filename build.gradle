@@ -23,4 +23,11 @@ dependencies {
     testCompile 'com.google.testing.compile:compile-testing:0.15'
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
 defaultTasks 'clean', 'test', 'jacocoTestReport', 'jar'
