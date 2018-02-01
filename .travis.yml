@@ -1,11 +1,11 @@
 language: java
 
 script:
-  - ./gradlew clean test jar --debug
+  - ./gradlew clean test jar --info
 
 jdk:
   - oraclejdk8
   - openjdk8
 
 after_success:
-  - ./gradlew jacocoTestReport coveralls --debug
+  - ./gradlew jacocoTestReport coveralls --info
